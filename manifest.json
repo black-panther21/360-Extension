@@ -3,10 +3,16 @@
  "name": "Shortcuts",
  "minimum_chrome_version": "24.0.1307.0",
  "version": "0.0.1",
- "options_page": "settings.html",
+ "description": "An extension that allows users to create custom keyboard shortcuts.",
+ "options_page": "html/settings.html",
+ "permissions": ["storage"],
  "homepage_url": "https://sarahmorrisonsmith.com/",
+ "action": {
+    "default_popup": "html/popup.html"
+  },
  "icons": {
  },
+ 
  "content_scripts": [
  {
  "matches": [

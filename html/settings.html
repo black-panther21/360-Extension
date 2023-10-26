@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Settings</title>
+    <!-- exit html folder and enter scripts folder-->
+    <script src="../scripts/settings.js"></script>
+</head>
+<body>
+    <h1>Shortcuts Extension</h1>
+
+    <h2>Add New Shortcut</h2>
+    <form id="newShortcutForm">
+        <label>
+            Name:
+            <input type="text" id="name">
+        </label>
+        <label>
+            New Key Combination:
+            <input type="text" id="newKeyCombo" placeholder="e.g., Cmd+Shift+C">
+        </label>
+        <label>
+            Old Key Combination:
+            <input type="text" id="oldKeyCombo" placeholder="e.g., Cmd+P">
+        </label>
+        <label>
+            Description:
+            <textarea id="description"></textarea>
+        </label>
+
+        <!-- Add an on/off switch to the form -->
+        <label>
+            Enable Shortcut:
+            <input type="checkbox" id="shortcutToggle">
+        </label>
+
+        <button type="submit">Add Shortcut</button>
+
+
+    </form>
+
+    <!-- Add a div for displaying the shortcuts -->
+    <h2>Your Shortcuts</h2>
+    <div id="shortcutList"></div>
+
+</body>
+</html>

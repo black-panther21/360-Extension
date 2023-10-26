@@ -15,9 +15,7 @@
  
  "content_scripts": [
  {
- "matches": [
- "https://sarahmorrisonsmith.com/*"
- ],
+ "matches": ["<all_urls>"],
  "js": [
  "scripts/jquery.min.js",
  "scripts/shortcuts.js"

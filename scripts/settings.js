@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         // Get the values from the form
         const name = document.getElementById('name').value;
         const newKeyCombo = document.getElementById('newKeyCombo').value;
-        const oldKeyCombo = document.getElementById('oldKeyCombo').value;
+        const autoFill = document.getElementById('autoFill').value;
         const description = document.getElementById('description').value;
         const shortcutToggle = document.getElementById('shortcutToggle').checked;
         
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         const shortcut = {
             name,
             newKeyCombo,
-            oldKeyCombo,
+            autoFill,
             description,
             enabled: shortcutToggle
         };
@@ -71,12 +71,12 @@ document.addEventListener('DOMContentLoaded', (event) => {
             newKeyComboInput.value = shortcut.newKeyCombo;
             newKeyComboLabel.appendChild(newKeyComboInput);
             
-            let oldKeyComboLabel = document.createElement('label');
-            oldKeyComboLabel.textContent = 'Old Key Combination:';
-            let oldKeyComboInput = document.createElement('input');
-            oldKeyComboInput.type = 'text';
-            oldKeyComboInput.value = shortcut.oldKeyCombo;
-            oldKeyComboLabel.appendChild(oldKeyComboInput);
+            let autoFillLabel = document.createElement('label');
+            autoFillLabel.textContent = 'Old Key Combination:';
+            let autoFillInput = document.createElement('input');
+            autoFillInput.type = 'text';
+            autoFillInput.value = shortcut.autoFill;
+            autoFillLabel.appendChild(autoFillInput);
             
             let descriptionLabel = document.createElement('label');
             descriptionLabel.textContent = 'Description:';
@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             // Add the elements to the form
            shortcutForm.appendChild(nameLabel);
            shortcutForm.appendChild(newKeyComboLabel);
-           shortcutForm.appendChild(oldKeyComboLabel);
+           shortcutForm.appendChild(autoFillLabel);
            shortcutForm.appendChild(descriptionLabel);
            shortcutForm.appendChild(enabledLabel);
            shortcutForm.appendChild(removeButton);

@@ -48,29 +48,19 @@ document.addEventListener('keydown', (event) => {
                     }
                 }
 
-                // if the new key combo matches, parse the old key combo
+                // if the new key combo matches the keydown event,
                 if (newKeyComboMatched) {
                     console.log("Matched: ", shortcut.name);
-                    let oldKeyCombo = shortcut.oldKeyCombo.split('+');
-                    let oldKeyComboParsed = {
-                        metaKey: oldKeyCombo.includes('Cmd') || oldKeyCombo.includes('Meta'),
-                        altKey: oldKeyCombo.includes('Alt'),
-                        ctrlKey: oldKeyCombo.includes('Ctrl'),
-                        shiftKey: oldKeyCombo.includes('Shift'),
-                        code: 'Key' + oldKeyCombo[oldKeyCombo.length - 1].toUpperCase()
-                    };
-
-                    // execute the old key combo
-                    var keyboardEvent = new KeyboardEvent('keydown', {
-                        ctrlKey: oldKeyComboParsed.ctrlKey, 
-                        metaKey: oldKeyComboParsed.metaKey, 
-                        shiftKey: oldKeyComboParsed.shiftKey, 
-                        code: oldKeyComboParsed.code
-                    });
-
-                    console.log("Executing: ", oldKeyComboParsed);
-                    document.dispatchEvent(keyboardEvent);
+                    // Check if the active element is an input field
+                    if (document.activeElement instanceof HTMLInputElement || document.activeElement instanceof HTMLTextAreaElement) {
+                        // append the text content of autoFill to the current input field
+                        document.activeElement.value += shortcut.autoFill;
+                    } else if (document.activeElement.isContentEditable) {
+                        // For contentEditable elements, use innerText or textContent
+                        document.activeElement.innerText += shortcut.autoFill;
+                    }
                 }
+
             }
         }
     });

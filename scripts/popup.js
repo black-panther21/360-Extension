@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             // Create a new list item for each shortcut
             for (let shortcut of shortcuts) {
                 const listItem = document.createElement('li');
-                listItem.textContent = `${shortcut.name}: ${shortcut.newKeyCombo} (was ${shortcut.oldKeyCombo})`;
+                listItem.textContent = `${shortcut.name}: ${shortcut.newKeyCombo} (${shortcut.autoFill})`;
                 shortcutList.appendChild(listItem);
             }
         });
